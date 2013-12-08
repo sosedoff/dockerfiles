@@ -1,0 +1,40 @@
+FROM ubuntu:12.04
+MAINTAINER Dan Sosedoff "dan.sosedoff@gmail.com"
+
+# Update system
+RUN apt-get update -y
+RUN apt-get upgrade -y
+
+# Install build dependencies
+RUN apt-get install -y sudo python-software-properties bsdmainutils netcat telnet wget
+RUN apt-get install -y autoconf binutils bison build-essential curl libcurl4-openssl-dev libffi-dev libgdbm-dev libicu-dev libncurses5-dev libreadline-dev libreadline6-dev libssl-dev libxml2 libxml2-dev libxslt-dev libxslt1-dev libyaml-dev ncurses-dev openssh-server zlib1g zlib1g-dev
+RUN apt-get install -y libpq-dev
+RUN apt-get install -y libssl1.0.0 libssl-dev
+
+# Install SCMs
+RUN add-apt-repository -y ppa:git-core/ppa
+RUN add-apt-repository -y ppa:mercurial-ppa/releases
+RUN add-apt-repository -y ppa:svn/ppa
+RUN apt-get update -y
+RUN apt-get install -y git mercurial subversion
+
+# Set the right locale
+RUN echo "LC_ALL=\"en_US.UTF-8\"" >> /etc/default/locale
+RUN locale-gen en_US.UTF-8
+RUN update-locale LANG=en_US.UTF-8
+
+# Change root password
+RUN echo "root:root" | chpasswd
+
+# Setup clients
+RUN apt-get install -y mysql-client libmysqlclient-dev
+RUN apt-get install -y postgresql-client-9.1 libpq-dev
+RUN apt-get install -y sqlite3 libsqlite3-dev
+
+# Install ruby
+ADD http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p353.tar.gz /tmp/
+RUN tar -xzf /tmp/ruby-2.0.0-p353.tar.gz && (cd ruby-2.0.0-p353/ && ./configure --disable-install-doc && make && make install)
+
+# Setup SSH server
+RUN apt-get install openssh-server
+RUN mkdir /var/run/sshd

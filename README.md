@@ -6,6 +6,7 @@ This is a collection of build files for Docker
 
 - Ruby 2.0
 - Redis Server
+- Sandbox
 
 ## Build Images
 

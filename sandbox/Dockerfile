@@ -33,7 +33,7 @@ RUN chown -R sandbox:sandbox /home/sandbox
 RUN echo "sandbox ALL=NOPASSWD: ALL" >> /etc/sudoers
 
 # Setup SSH server
-RUN apt-get install openssh-server
+RUN apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
 
 # Run SSH server

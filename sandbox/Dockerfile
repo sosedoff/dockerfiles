@@ -1,4 +1,4 @@
-FROM ubuntu:12.04
+FROM sosedoff/base
 MAINTAINER Dan Sosedoff "dan.sosedoff@gmail.com"
 
 # Update system

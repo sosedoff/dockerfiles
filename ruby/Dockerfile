@@ -38,6 +38,7 @@ RUN apt-get install -y sqlite3 libsqlite3-dev
 # Install ruby
 ADD http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p353.tar.gz /tmp/
 RUN tar -xzf /tmp/ruby-2.0.0-p353.tar.gz && (cd ruby-2.0.0-p353/ && ./configure --disable-install-doc && make && make install)
+RUN rm -rf /tmp/ruby* && rm -rf /ruby
 
 # Setup SSH server
 RUN apt-get install openssh-server

@@ -4,11 +4,12 @@ This is a collection of build files for Docker
 
 ## Images
 
-- `01-base`    - Base image with all tools to build software and packages
-- `01-redis`   - Redis server image
-- `02-ruby`    - Ruby 2.0 image
-- `02-sandbox` - Sandbox image with SSH server
-- `02-nodejs`  - Node.js 0.10 image
+- `base`    - Base image with all tools to build software and packages
+- `redis`   - Redis server image
+- `ruby`    - Ruby 2.0 image
+- `sandbox` - Sandbox image with SSH server
+- `nodejs`  - Node.js 0.10 image
+- `elasticsearch` - Elasticsearch 0.90 image with OpenJRE 7
 
 ## Build Images
 

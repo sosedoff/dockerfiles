@@ -1,6 +1,9 @@
 FROM ubuntu:12.04
 MAINTAINER Dan Sosedoff "dan.sosedoff@gmail.com"
 
+# Add universe source
+RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+
 # Update system
 RUN apt-get update -y
 RUN apt-get upgrade -y
@@ -24,4 +27,4 @@ RUN rm /tmp/elasticsearch-0.90.7.deb
 
 # Setup elasticsearch
 EXPOSE 9200
-ENTRYPOINT TODO
+ENTRYPOINT [/usr/share/elasticsearch/bin/elasticsearch]

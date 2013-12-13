@@ -27,4 +27,6 @@ RUN rm /tmp/elasticsearch-0.90.7.deb
 
 # Setup elasticsearch
 EXPOSE 9200
-ENTRYPOINT [/usr/share/elasticsearch/bin/elasticsearch -f]
+
+# TODO: Find a better way to start ES
+#ENTRYPOINT [/usr/share/elasticsearch/bin/elasticsearch -f]

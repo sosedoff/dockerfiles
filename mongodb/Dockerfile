@@ -30,3 +30,4 @@ RUN mkdir -p /data/db
 
 # Setup MongoDB server
 EXPOSE 27017
+ENTRYPOINT ["/usr/bin/mongod"]

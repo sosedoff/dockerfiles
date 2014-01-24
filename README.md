@@ -2,6 +2,14 @@
 
 This is a collection of build files for Docker
 
+## Install
+
+To install Docker execute the following command on your host machine:
+
+```
+curl -s https://get.docker.io/ubuntu/ | sudo sh
+```
+
 ## Images
 
 - `base`          - Base image with all tools to build software and packages

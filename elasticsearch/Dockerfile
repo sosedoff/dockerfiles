@@ -28,4 +28,4 @@ RUN dpkg -i /tmp/elasticsearch-0.90.10.deb && rm /tmp/elasticsearch-0.90.10.deb
 EXPOSE 9200
 
 # Start elasticsearch, make sure to run container in the background
-CMD [/usr/share/elasticsearch/bin/elasticsearch -f]
+CMD ["/usr/share/elasticsearch/bin/elasticsearch", "-f"]

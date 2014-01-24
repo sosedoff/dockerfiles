@@ -1,3 +1,0 @@
-#!/bin/bash
-
-docker build -t=sosedoff/redis -rm=true .

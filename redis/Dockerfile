@@ -17,16 +17,15 @@ RUN update-locale LANG=en_US.UTF-8
 # Install dependencies
 RUN apt-get install -y sudo python-software-properties
 
-# Change root password
-RUN echo "root:root" | chpasswd
-
 # Add redis ppa
 RUN add-apt-repository -y ppa:chris-lea/redis-server
-RUN apt-get update -y
+RUN apt-get update
 
 # Install redis server
 RUN apt-get install -y redis-server
 
-# Setup redis server
+# Expose daemon server
 EXPOSE 6379
-ENTRYPOINT /usr/bin/redis-server
+
+# Setup redis server
+CMD ["/usr/bin/redis-server"]

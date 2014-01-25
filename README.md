@@ -28,6 +28,7 @@ curl -s https://get.docker.io/ubuntu/ | sudo sh
 
 - `ruby`   - Ruby 2.0
 - `nodejs` - Node.js 0.10
+- `go`     - Go 1.2
 
 ### Databases
 

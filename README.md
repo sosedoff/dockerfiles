@@ -37,3 +37,4 @@ curl -s https://get.docker.io/ubuntu/ | sudo sh
 - `mysql`         - MySQL database server 5.5.x
 - `postgresql`    - PostgreSQL database server 9.3
 - `redis`         - Redis key-value storage engine 2.8.x
+- `rabbitmq`      - RabbitMQ message queue server 3.2.x

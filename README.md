@@ -1,10 +1,19 @@
 # dockerfiles
 
-This is a collection of build files for Docker
+This is a collection of build files for Docker.
 
 ## Install
 
-To install Docker execute the following command on your host machine:
+First, you'll need to prepare your host before installing Docker:
+
+```
+apt-get update -y
+apt-get install -y git-core
+apt-get install -y linux-image-generic-lts-raring linux-headers-generic-lts-raring
+reboot
+```
+
+After reboot, execute the following command to install Docker:
 
 ```
 curl -s https://get.docker.io/ubuntu/ | sudo sh
@@ -12,17 +21,18 @@ curl -s https://get.docker.io/ubuntu/ | sudo sh
 
 ## Images
 
-- `base`          - Base image with all tools to build software and packages
-- `redis`         - Redis server image
-- `ruby`          - Ruby 2.0 image
-- `sandbox`       - Sandbox image with SSH server
-- `nodejs`        - Node.js 0.10 image
-- `elasticsearch` - Elasticsearch 0.90 image with OpenJRE 7
-- `mongodb`       - MongoDb Server 2.4.x
+- `base`    - Base image with build tools and packages
+- `sandbox` - Sandbox image for SSH connections
 
-## Build Images
+### Language runtimes
 
-```
-cd imagedir
-./build
-```
+- `ruby`   - Ruby 2.0
+- `nodejs` - Node.js 0.10
+
+### Databases
+
+- `elasticsearch` - ElasticSearch 0.90.x search engine with OpenJRE 7
+- `mongodb`       - MongoDB database server 2.4.x
+- `mysql`         - MySQL database server 5.5.x
+- `postgresql`    - PostgreSQL database server 9.3
+- `redis`         - Redis key-value storage engine 2.8.x

@@ -8,7 +8,7 @@ RUN apt-get install -y sqlite3 libsqlite3-dev
 
 # Install ruby
 ADD http://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p484.tar.gz /tmp/
-RUN tar -xzf /tmp/ruby-1.9.3-p484.tar.gz && (cd ruby-2.0.0-p353/ && ./configure --disable-install-doc && make && make install)
+RUN tar -xzf /tmp/ruby-1.9.3-p484.tar.gz && (cd ruby-1.9.3-p484/ && ./configure --disable-install-doc && make && make install)
 RUN rm -rf /tmp/ruby* && rm -rf /ruby
 
 # Update rubygems

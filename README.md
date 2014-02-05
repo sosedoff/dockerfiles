@@ -26,10 +26,15 @@ curl -s https://get.docker.io/ubuntu/ | sudo sh
 
 ### Language runtimes
 
-- `ruby`   - Ruby 2.0
 - `nodejs` - Node.js 0.10
 - `go`     - Go 1.2
 - `erlang` - Erlang R16B03
+
+Ruby:
+
+- 1.9.3
+- 2.0.0
+- 2.1.0
 
 ### Databases
 

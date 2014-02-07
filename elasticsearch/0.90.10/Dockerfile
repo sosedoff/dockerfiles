@@ -24,6 +24,9 @@ RUN apt-get install -y sudo python-software-properties openjdk-7-jre-headless
 ADD https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.10.deb /tmp/
 RUN dpkg -i /tmp/elasticsearch-0.90.10.deb && rm /tmp/elasticsearch-0.90.10.deb
 
+# Install elasticsearch config
+ADD elasticsearch.yml /etc/elasticsearch/elasticsearch.yml
+
 # Setup elasticsearch
 EXPOSE 9200
 

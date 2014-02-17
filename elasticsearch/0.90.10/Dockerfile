@@ -17,7 +17,7 @@ RUN update-locale LANG=en_US.UTF-8
 RUN apt-get install -y sudo python-software-properties openjdk-7-jre-headless
 
 # Install elasticsearch
-ADD https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.10.deb /tmp/
+ADD https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.10.deb /tmp/elasticsearch-0.90.10.deb
 RUN dpkg -i /tmp/elasticsearch-0.90.10.deb && rm /tmp/elasticsearch-0.90.10.deb
 
 # Install elasticsearch config

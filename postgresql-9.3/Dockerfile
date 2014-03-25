@@ -8,10 +8,6 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt
 RUN apt-get update
 RUN apt-get upgrade -y
 
-# Fix upstart (https://github.com/dotcloud/docker/issues/1024)
-RUN dpkg-divert --local --rename --add /sbin/initctl
-RUN ln -s /bin/true /sbin/initctl
-
 # Fix locale
 RUN echo "LC_ALL=\"en_US.UTF-8\"" >> /etc/default/locale
 RUN locale-gen en_US.UTF-8

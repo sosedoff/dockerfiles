@@ -1,25 +1,47 @@
 FROM ubuntu:12.04
 MAINTAINER Dan Sosedoff "dan.sosedoff@gmail.com"
 
-# Add universe source
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+RUN apt-get install -y apparmor
+RUN apt-get update
 
-# Update system
-RUN apt-get update -y
-RUN apt-get upgrade -y
-
-# Fix locale
 RUN echo "LC_ALL=\"en_US.UTF-8\"" >> /etc/default/locale
-RUN locale-gen en_US.UTF-8
-RUN update-locale LANG=en_US.UTF-8
 
-# Change root password
-RUN echo "root:root" | chpasswd
+RUN locale-gen en_US.UTF-8 && \
+    update-locale LANG=en_US.UTF-8
 
-# Setup SSH server
-RUN apt-get install -y openssh-server
-RUN mkdir /var/run/sshd
-
-# Run dependencies installation
-ADD setup.sh /tmp/setup.sh
-RUN /tmp/setup.sh
+RUN apt-get install -y \
+  wget \
+  curl \
+  git-core \
+  autoconf \
+  binutils \
+  bison \
+  build-essential \
+  checkinstall \
+  openssl \
+  sqlite3 \
+  ncurses-dev \
+  zlib1g \
+  zlib1g-dev \
+  libssl1.0.0 \
+  libssl-dev \
+  libcurl4-openssl-dev \
+  libffi-dev \
+  libgdbm-dev \
+  libicu-dev \
+  libncurses5-dev \
+  libreadline-dev \
+  libreadline6-dev \
+  libssl-dev \
+  libxml2 \
+  libxml2-dev \
+  libxslt-dev \
+  libxslt1-dev \
+  libyaml-dev \
+  libmysqlclient-dev \
+  libpq-dev \
+  libsqlite3-dev \
+  libqt4-dev \
+  freetds-dev \
+  freetds-bin \
+  libfontconfig1
